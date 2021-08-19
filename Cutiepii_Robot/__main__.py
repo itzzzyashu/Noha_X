@@ -91,7 +91,7 @@ PM_START_TEXT = """
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 • *Uptime:* `{}`
 • `{}` *users, across* `{}` *chats.*
-• *thnx to @awesome_shane for cutiepii robot repo*
+• *thnx to @Cutiepii_Robot for cutiepii robot repo*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ➛ Try The Help Buttons Below To Know My Abilities ××
 """
