@@ -98,8 +98,8 @@ def chatbot(update: Update, context: CallbackContext):
         if not kuki_message(context, message):
             return
         Message = message.text
-        bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('https://kuki.up.railway.app/Kuki/chatbot?message='+Message)
+        bot.send_chat_action(chat_id, action="playing")
+        kukiurl = requests.get('https://kukiapi.up.railway.app/Kuki/chatbot?message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
         sleep(0.3)
