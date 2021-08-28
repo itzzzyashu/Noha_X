@@ -98,7 +98,7 @@ def chatbot(update: Update, context: CallbackContext):
         if not kuki_message(context, message):
             return
         Message = message.text
-        bot.send_chat_action(chat_id, action="playing")
+        bot.send_chat_action(chat_id, action="typing")
         kukiurl = requests.get('https://kukiapi.up.railway.app/Kuki/chatbot?message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
@@ -111,11 +111,9 @@ def list_all_chats(update: Update, context: CallbackContext):
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
-            name = x.title if x.title else x.first_name
+            name = x.title or x.first_name
             text += f"• <code>{name}</code>\n"
-        except BadRequest:
-            sql.rem_kuki(*chat)
-        except Unauthorized:
+        except (BadRequest, Unauthorized):
             sql.rem_kuki(*chat)
         except RetryAfter as e:
             sleep(e.retry_after)
