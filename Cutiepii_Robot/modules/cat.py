@@ -20,10 +20,10 @@ CAT_HANDLER = DisableAbleCommandHandler("cat", cat, run_async=True)
 
 dispatcher.add_handler(CAT_HANDLER)
 
-__mod_name__ = "CAT API"
-__command_list__ = [
+mod_name = "Cat API"
+command_list = [
     "cat",
 ]
-__handlers__ = [
-   CAT_HANDLER,
+handlers = [
+    CAT_HANDLER,
 ]
