@@ -33,8 +33,7 @@ jobs:
           cd nohaX
       - name: pip
         run: |
-        sudo apt-get install  postgresql make build-essential pip
-        pip install -r r*.txt
+        sudo apt-get install  postgresql make build-essential pip && pip install -r requirements.txt
 
       - name: run bot
        timeout-minutes: 340
