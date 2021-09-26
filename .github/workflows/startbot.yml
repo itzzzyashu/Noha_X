@@ -34,7 +34,6 @@ jobs:
       - name: pip
         run: |
         sudo apt-get install  postgresql make build-essential pip && pip install -r requirements.txt
-
       - name: run bot
        timeout-minutes: 340
        continue-on-error: true
