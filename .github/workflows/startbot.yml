@@ -29,5 +29,25 @@ jobs:
 
       - name: Clone The Secret Mirror Repository
         run: |
-          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.BOT }} nohax
+          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.BOT }} nohaX
+          cd nohaX
+      - name: pip
+        run: |
+        sudo apt-get install  postgresql make build-essential pip
+        pip3 install -r r*.txt
+      - name: run bot
+       timeout-minutes: 340
+       continue-on-error: true
+        run: |
+         python3 -m Cutie*
 
+     - name: Loop Workflow
+        continue-on-error: true
+        run: |
+          # ${GITHUB_REPOSITORY} is the repo slug which runs this script
+          git clone https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} loop
+          cd loop || exit 1
+          echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
+          git add looper.txt
+          git commit -m "Workflow : Loop at $(date -u +%D-%T%P)"
+          git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
