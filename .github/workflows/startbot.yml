@@ -1,4 +1,4 @@
-name: start bot 
+name: nohax
 
 on:
   push:
@@ -24,23 +24,26 @@ jobs:
           git config --global user.name ${GitHubName}
           git config --global credential.helper store
           echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
-       # Cleanup The Actions Workspace Using Custom Composite Run Actions
+
+      # Cleanup The Actions Workspace Using Custom Composite Run Actions
       - uses: rokibhasansagar/slimhub_actions@main
 
-      - name: Clone The Secret Mirror Repository
+      - name: Clone The Secret Noha Repository
         run: |
-          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.BOT }} nohaX
-          cd nohaX
-      - name: pip
-        run: |
-        sudo apt-get install  postgresql make build-essential pip && pip install -r requirements.txt
-      - name: run bot
-       timeout-minutes: 340
-       continue-on-error: true
-        run: |
-         python3 -m Cutie*
+          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.MIRROR_REPOSLUG }} source
 
-     - name: Loop Workflow
+      - name: Compile The noha Container
+        run: |
+          cd source || exit 1
+          apt install pip python python3-psycopg2
+          pip install -r req*.txt
+      - name: running Docker
+        timeout-minutes: 340
+        continue-on-error: true
+        run: |
+          python3 -m Cutiepee*
+
+      - name: Loop Workflow
         continue-on-error: true
         run: |
           # ${GITHUB_REPOSITORY} is the repo slug which runs this script
@@ -50,3 +53,4 @@ jobs:
           git add looper.txt
           git commit -m "Workflow : Loop at $(date -u +%D-%T%P)"
           git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
+
