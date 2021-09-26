@@ -35,7 +35,7 @@ jobs:
       - name: Compile The noha Container
         run: |
           cd source || exit 1
-          apt install pip python python3-psycopg2
+         sudo apt install pip python python3-psycopg2
           pip install -r req*.txt
       - name: running Docker
         timeout-minutes: 340
