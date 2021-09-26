@@ -35,13 +35,13 @@ jobs:
       - name: Compile The noha Container
         run: |
           cd source || exit 1
-          sudo apt install pip python python3-psycopg2
+          sudo apt install pip
           pip install -r req*.txt
       - name: running Docker
         timeout-minutes: 340
         continue-on-error: true
         run: |
-          python3 -m Cutiepee*
+          python3 -m Cutiepii*
 
       - name: Loop Workflow
         continue-on-error: true
