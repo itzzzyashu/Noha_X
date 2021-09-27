@@ -42,14 +42,14 @@ def add_chat(update: Update, context: CallbackContext):
     is_kuki = sql.is_kuki(chat.id)
     if not is_kuki:
         sql.set_kuki(chat.id)
-        msg.reply_text("Cutiepii AI successfully enabled for this chat!")
+        msg.reply_text("NohaX AI successfully enabled for this chat!")
         message = (
             f"<b>{html.escape(chat.title)}:</b>\n"
             f"AI_ENABLED\n"
             f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
         )
         return message
-    msg.reply_text("Cutiepii AI is already enabled for this chat!")
+    msg.reply_text("NohaX AI is already enabled for this chat!")
     return ""
 
 
@@ -61,10 +61,10 @@ def rem_chat(update: Update, context: CallbackContext):
     user = update.effective_user
     is_kuki = sql.is_kuki(chat.id)
     if not is_kuki:
-        msg.reply_text("Cutiepii AI isn't enabled here in the first place!")
+        msg.reply_text("NohaX AI isn't enabled here in the first place!")
         return ""
     sql.rem_kuki(chat.id)
-    msg.reply_text("Cutiepii AI disabled successfully!")
+    msg.reply_text("NohaX AI disabled successfully!")
     message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"AI_DISABLED\n"
@@ -77,7 +77,7 @@ def rem_chat(update: Update, context: CallbackContext):
 
 def kuki_message(context: CallbackContext, message):
     reply_message = message.reply_to_message
-    if message.text.lower() == "cutiepii":
+    if message.text.lower() == "noha":
         return True
     if reply_message:
         if reply_message.from_user.id == context.bot.get_me().id:
@@ -98,8 +98,8 @@ def chatbot(update: Update, context: CallbackContext):
         if not kuki_message(context, message):
             return
         Message = message.text
-        bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('https://kukiapi.up.railway.app/Kuki/chatbot?message='+Message)
+        bot.send_chat_action(chat_id, action="playing")
+        kukiurl = requests.get('https://www.kuki-api.tk/api/botname/owner/message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
         sleep(0.3)
@@ -134,8 +134,8 @@ Chatbot utilizes the Kuki API and allows Cutiepii to talk and provides a more in
 *Admins only:*
    ➢ `addchat`*:* Enables Chatbot mode in the chat.
    ➢ `rmchat`*:* Disables Chatbot mode in the chat.
-   
-Reports bugs at @Black_Knights_Union_Support
+   - `nothing`*:* Noting todo haha
+Reports bugs at @noha_support
 """
 
 __mod_name__ = "ChatBot"
