@@ -134,7 +134,7 @@ Chatbot utilizes the Kuki API and allows Cutiepii to talk and provides a more in
 *Admins only:*
    ➢ `addchat`*:* Enables Chatbot mode in the chat.
    ➢ `rmchat`*:* Disables Chatbot mode in the chat.
-   - `nothing`*:* Noting todo haha
+   
 Reports bugs at @noha_support
 """
 
