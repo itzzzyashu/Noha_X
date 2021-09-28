@@ -85,7 +85,7 @@ def get_readable_time(seconds: int) -> str:
 CUTIEPII_IMG = "https://telegra.ph/file/d8b55d150c6fbf11aa8b3.png"
     
 PM_START_TEXT = """
-────「 [noha X](https://telegra.ph/file/d8b55d150c6fbf11aa8b3.png) 」────
+────「 [noha X](https://telegra.ph/file/1d60755c6f31fa8ce76af.png) 」────
 *Hola! {},*
 *I am an Anime themed advance group management bot with a lot of Sexy Features.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
