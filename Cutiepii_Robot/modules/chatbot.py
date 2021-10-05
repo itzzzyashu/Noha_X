@@ -99,7 +99,7 @@ def chatbot(update: Update, context: CallbackContext):
             return
         Message = message.text
         bot.send_chat_action(chat_id, action="playing")
-        kukiurl = requests.get('https://www.kuki-api.tk/api/NohaXbot/@Flasho_gacha/message='+Message)
+        kukiurl = requests.get('https://www.kuki-api.tk/api/NohaXbotbot/@Flasho_gacha/message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
         sleep(0.3)
