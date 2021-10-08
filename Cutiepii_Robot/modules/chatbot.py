@@ -25,12 +25,12 @@ import re
 import os
 import html
 import requests
-import CutiepiiRobot.modules.sql.kuki_sql as sql
+import Cutiepii_Robot.modules.sql.kuki_sql as sql
 
 from time import sleep
 from telegram import ParseMode
-from CutiepiiRobot import dispatcher, updater, SUPPORT_CHAT
-from CutiepiiRobot.modules.log_channel import gloggable
+from Cutiepii_Robot import dispatcher, updater, SUPPORT_CHAT
+from Cutiepii_Robot.modules.log_channel import gloggable
 from telegram import (CallbackQuery, Chat, MessageEntity, InlineKeyboardButton,
                       InlineKeyboardMarkup, Message, ParseMode, Update, Bot, User)
 
